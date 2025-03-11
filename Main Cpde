@@ -1,0 +1,92 @@
+#include <stdio.h>
+#include <stdlib.h>
+#include <string.h>
+
+struct employee
+{
+    char name[50];
+    char company[50];
+    int age;
+    char gender[10];
+    char address[50];
+    char department[50];
+    float salary;
+    char phone[15];
+    char email[50];
+    char employee_id[10];
+    char blood_group[5];
+    char designation[50];
+    char joining_date[15];
+};
+
+int main(){
+    printf("How many employees do you want to enter? ");
+    int n;
+    scanf("%d", &n);
+    getchar();
+    struct employee e[n];
+    for (int i = 0; i < n; i++)
+    {
+        printf("Enter the name of the employee %d: ", i+1);
+        fgets(e[i].name, 50, stdin);
+        e[i].name[strcspn(e[i].name, "\n")] = 0; // Remove newline character
+
+        printf("Enter the company of the employee: ");
+        fgets(e[i].company, 50, stdin);
+        e[i].company[strcspn(e[i].company, "\n")] = 0;
+
+        printf("Enter the age of the employee: ");
+        scanf("%d", &e[i].age);
+        getchar();
+
+        printf("Enter the gender of the employee: ");
+        fgets(e[i].gender, 10, stdin);
+        e[i].gender[strcspn(e[i].gender, "\n")] = 0;
+
+        printf("Enter the address of the employee: ");
+        fgets(e[i].address, 50, stdin);
+        e[i].address[strcspn(e[i].address, "\n")] = 0;
+
+        printf("Enter the department of the employee: ");
+        fgets(e[i].department, 50, stdin);
+        e[i].department[strcspn(e[i].department, "\n")] = 0;
+
+        printf("Enter the salary of the employee: ");
+        scanf("%f", &e[i].salary);
+        getchar();
+
+        printf("Enter the phone number of the employee: ");
+        fgets(e[i].phone, 15, stdin);
+        e[i].phone[strcspn(e[i].phone, "\n")] = 0;
+
+        printf("Enter the email of the employee: ");
+        fgets(e[i].email, 50, stdin);
+        e[i].email[strcspn(e[i].email, "\n")] = 0;
+
+        printf("Enter the employee id of the employee: ");
+        fgets(e[i].employee_id, 10, stdin);
+        e[i].employee_id[strcspn(e[i].employee_id, "\n")] = 0;
+
+        printf("Enter the blood group of the employee: ");
+        fgets(e[i].blood_group, 5, stdin);
+        e[i].blood_group[strcspn(e[i].blood_group, "\n")] = 0;
+
+        printf("Enter the designation of the employee: ");
+        fgets(e[i].designation, 50, stdin);
+        e[i].designation[strcspn(e[i].designation, "\n")] = 0;
+
+        printf("Enter the joining date of the employee: ");
+        fgets(e[i].joining_date, 15, stdin);
+        e[i].joining_date[strcspn(e[i].joining_date, "\n")] = 0;
+
+        printf("\n");
+    }
+
+    for (int i = 0; i < n; i++)
+    {
+        printf("%s works at %s in the %s department. They are %d years old and live at %s. Their salary is %.2f. Their phone number is %s and email is %s. Their employee ID is %s. Their blood group is %s. They are a %s and joined on %s.\n", 
+            e[i].name, e[i].company, e[i].department, e[i].age, e[i].address, e[i].salary, e[i].phone, e[i].email, e[i].employee_id, e[i].blood_group, e[i].designation, e[i].joining_date);
+    }
+
+    return 0;
+}
